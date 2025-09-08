@@ -1,5 +1,5 @@
-FROM rockylinux:9
-LABEL maintainer="Jeff Geerling"
+FROM openeuler/openeuler:24.03
+LABEL maintainer="Berny Linville"
 ENV container=docker
 
 ENV pip_packages="ansible"
@@ -17,7 +17,7 @@ rm -f /lib/systemd/system/anaconda.target.wants/*;
 RUN yum -y install rpm dnf-plugins-core \
  && yum -y update \
  && yum -y install \
-      epel-release \
+     #  epel-release \
       initscripts \
       sudo \
       which \
