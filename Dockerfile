@@ -27,6 +27,7 @@ RUN yum -y install rpm dnf-plugins-core \
       python3-pip \
       python3-pyyaml \
       iproute \
+      kmod \
  && yum clean all
 
 # Upgrade pip to latest version.
@@ -37,6 +38,9 @@ RUN pip3 install $pip_packages
 
 # Disable requiretty.
 RUN sed -i -e 's/^\(Defaults\s*requiretty\)/#--- \1/'  /etc/sudoers
+
+# Create user berny
+RUN useradd -m -s /bin/bash berny
 
 # Install Ansible inventory file.
 RUN mkdir -p /etc/ansible
