@@ -1,4 +1,5 @@
 FROM bernylinville/docker-openeuler2403-ansible:latest
 
-# Create user 'pukka' without a password
-RUN useradd -m -s /bin/bash pukka
+# Install sudo and create user 'pukka' without a password
+RUN yum install -y sudo \
+    useradd -m -s /bin/bash pukka
